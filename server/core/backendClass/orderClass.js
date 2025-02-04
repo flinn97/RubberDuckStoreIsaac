@@ -35,12 +35,11 @@ export default class OrderClass extends BaseClass {
         if (q > 100) {
             let discount = cost * 0.2;
             this.mods.push({ amount: -discount, description: `20% discount for orders over 100 units` });
-            cost -= discount;
         }
 
         // Package surcharge or discount
         let packageMod = this.json.package.getJson().mod;
-        let packageCharge = this.json.package.getCharge(cost);  // Amount calculated correctly
+        let packageCharge = this.json.package.getCharge(cost);
         this.mods.push({
             amount: packageCharge,
             description: `${Math.abs(packageMod * 100)}% ${packageMod > 0 ? 'surcharge' : 'discount'} for ${this.json.package.getJson().mode} packaging`

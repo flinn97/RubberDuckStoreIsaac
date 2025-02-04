@@ -99,20 +99,18 @@ export default class DucksChart extends Component {
     };
 
     getSoftBackground(color) {
-        switch (color) {
-            case 'Red':
-                return 'rgba(196, 74, 74, 0.15)';
-            case 'Green':
-                return 'rgba(36, 168, 36, 0.15)';
-            case 'Yellow':
-                return 'rgba(255, 255, 0, 0.15)';
-            case 'Black':
-                return 'rgba(0, 0, 0, 0.15)';
-            default:
-                return '#ffffff';
+        let softColor = {
+            Red:'rgba(196, 74, 74, 0.15)',
+            Green:'rgba(36, 168, 36, 0.15)',
+            Yellow:'rgba(255, 255, 0, 0.15)',
+            Black:'rgba(0, 0, 0, 0.15)',
+            default:'#ffffff'
         }
-    }
 
+        let finalColor = softColor[color] || softColor.default;
+
+        return finalColor;
+    }
 
 
     render() {

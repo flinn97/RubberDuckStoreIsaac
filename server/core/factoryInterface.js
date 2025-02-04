@@ -15,7 +15,7 @@ export default class FactoryInterface {
         }
     }
 
-    getFactory(type){
+    getFactory(type){ 
         if (!this[type]){
             this[type] = new this.factoryTypes[type]();
         }
